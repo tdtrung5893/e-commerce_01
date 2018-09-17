@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     end
 
     namespace :admin do
+      resources :create_forms
       resources :categories, concerns: :paginatable
       resources :images
       resources :products, concerns: :paginatable do

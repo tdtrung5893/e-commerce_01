@@ -7,8 +7,9 @@ class Product < ApplicationRecord
   has_many :ratings
   has_many :comments, dependent: :destroy
   has_many :order_details
-  has_many :images
+  has_many :images, dependent: :destroy
   has_many :promotion_details
+  has_one :feature, dependent: :destroy
 
   delegate :name, to: :category, prefix: true
 

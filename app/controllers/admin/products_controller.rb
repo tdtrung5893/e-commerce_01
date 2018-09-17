@@ -15,24 +15,24 @@ class Admin::ProductsController < Admin::ApplicationController
     end
   end
 
-  def new
-    @product = Product.new
-    @product.images.build
-  end
+  # def new
+  #   @product = Product.new
+  #   @product.images.build
+  # end
 
-  def edit; end
+  # def edit; end
 
-  def create
-    @product = Product.new product_params
+  # def create
+  #   @product = Product.new product_params
 
-    if @product.save
-      flash[:success] = t "product_created"
-      redirect_to admin_category_url @product.category
-    else
-      flash[:danger] = t "create_product_failed"
-      render :new
-    end
-  end
+  #   if @product.save
+  #     flash[:success] = t "product_created"
+  #     redirect_to admin_category_url @product.category
+  #   else
+  #     flash[:danger] = t "create_product_failed"
+  #     render :new
+  #   end
+  # end
 
   def update
     if @product.update_attributes product_params
