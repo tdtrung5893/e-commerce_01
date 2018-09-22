@@ -30,7 +30,7 @@
               </div>
               <div class="slider-nav">
                 <% @product.images.each do |i| %>
-                  <div class="thum-image"><%= image_tag i.image_url_url %></div>
+                  <div class="thum-image-admin"><%= image_tag i.image_url_url %></div>
                 <% end %>
               </div>
             </div>
@@ -100,9 +100,37 @@
             </div>
             <div class="tab-content-wrap">
               <div class="tab-content" id="Descraption">
-                <p>
-                  <%= @product.description %>
-                </p>
+                <h3><%= t ".basic_props" %></h3>
+                <% if @product.feature.present? %>
+                  <table class="table table-hover mt-5" >
+                    <tbody>
+                      <tr>
+                        <td><%= t ".screen" %>:</td>
+                        <td><%= @product.feature.screen %></td>
+                      </tr>
+                      <tr>
+                        <td><%= t ".camera" %>:</td>
+                        <td><%= @product.feature.camera %></td>
+                      </tr>
+                      <tr>
+                        <td><%= t ".cpu" %>:</td>
+                        <td><%= @product.feature.cpu %></td>
+                      </tr>
+                      <tr>
+                        <td><%= t ".ram" %>:</td>
+                        <td><%= @product.feature.ram %></td>
+                      </tr>
+                      <tr>
+                        <td><%= t ".rom" %>:</td>
+                        <td><%= @product.feature.rom %></td>
+                      </tr>
+                      <tr>
+                        <td><%= t ".pin" %>:</td>
+                        <td><%= @product.feature.pin %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                <% end %>
               </div>
               <div class="tab-content" id="Reviews">
                 <div class="clearfix">

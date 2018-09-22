@@ -24,19 +24,25 @@
     <div class="productname">
       <%= link_to product.name, product_path(product) %>
     </div>
-    <% product.promotion_details.each do |i| %>
-      <% if Time.zone.today.between?(i.start_date, i.end_date) %>
-        <span class="price">
-          <%= format_price sale_price_partial(product, i) %>
-        </span>
-        <span>
-        <h5 class="oldprice"><%= format_price product.price %></h5>
-        </span>
-      <% else %>
-        <span class="price">
-          <%= format_price product.price %>
-        </span>
+    <% if product.promotion_details.present? %>
+      <% product.promotion_details.each do |i| %>
+        <% if Time.zone.today.between?(i.start_date, i.end_date) %>
+          <span class="price">
+            <%= format_price sale_price_partial(product, i) %>
+          </span>
+          <span>
+          <h5 class="oldprice"><%= format_price product.price %></h5>
+          </span>
+        <% else %>
+          <span class="price">
+            <%= format_price product.price %>
+          </span>
+        <% end %>
       <% end %>
+    <% else %>
+      <span class="price">
+        <%= format_price product.price %>
+      </span>
     <% end %>
     <div class="button_group">
       <%= button_to t(".add"), carts_path(product_id: product.id),

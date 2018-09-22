@@ -276,6 +276,13 @@ en:
       products: "Products"
       related: "Related"
       review: "REVIEW"
+      basic_props: "Properties basic"
+      screen: "Screen"
+      camera: "Camera"
+      cpu: "CPU"
+      ram: "RAM"
+      rom: "ROM"
+      pin: "Pin"
   shared:
     cart:
       amount: "Total Price"

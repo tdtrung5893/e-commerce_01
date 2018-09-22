@@ -1,0 +1,89 @@
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="page-header title"><%= @product.name %></h2>
+      </div>
+      <%= link_to t("admin.categories.products.edit"),
+        edit_admin_product_path(@product, category_id: @product.category.id),
+        class: "btn btn-sm btn-info" %>
+    </div>
+  </div>
+  <div class="products-details">
+    <div class="preview_image">
+      <div class="slider-for">
+        <% @product.images.each do |i| %>
+          <div class="preview-small">
+            <%= image_tag i.image_url_url %>
+          </div>
+        <% end %>
+      </div>
+      <div class="slider-nav">
+        <% @product.images.each do |i| %>
+          <div class="thum-image-admin"><%= image_tag i.image_url_url %></div>
+        <% end %>
+      </div>
+    </div>
+    <div class="products-description">
+      <h5 class="name">
+        <%= @product.name %>
+      </h5>
+      <p>
+        <input type="hidden" data-id="<%= @product.id %>" class="rating"
+          data-filled="fa fa-star fa-1x" data-empty="fa fa-star-o fa-1x"
+          value="<%= @product.average_rating %>" disabled="disabled" />
+        <a class="review_num" href="#">
+          <%= pluralize(@product.ratings.count, t(".people_ratings")) %>
+        </a> |
+        <a><%= pluralize(@comments.count, t(".review")) %></a>
+      </p>
+      <h3><%= t "products.show.basic_props" %></h3>
+      <% if @product.feature.present? %>
+        <table class="table table-hover mt-5" >
+          <tbody>
+            <tr>
+              <td><%= t "products.show.screen" %>:</td>
+              <td><%= @product.feature.screen %></td>
+            </tr>
+            <tr>
+              <td><%= t "products.show.camera" %>:</td>
+              <td><%= @product.feature.camera %></td>
+            </tr>
+            <tr>
+              <td><%= t "products.show.cpu" %>:</td>
+              <td><%= @product.feature.cpu %></td>
+            </tr>
+            <tr>
+              <td><%= t "products.show.ram" %>:</td>
+              <td><%= @product.feature.ram %></td>
+            </tr>
+            <tr>
+              <td><%= t "products.show.rom" %>:</td>
+              <td><%= @product.feature.rom %></td>
+            </tr>
+            <tr>
+              <td><%= t "products.show.pin" %>:</td>
+              <td><%= @product.feature.pin %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+      <hr class="border">
+      <div class="price">
+        <%= t "layouts.header.price" %>
+        <% if @percent.present? %>
+          <span class="new_price">
+            <%= format_price sale_price_show(@product, @percent) %>
+          </span>
+          <span class="old_price">
+            <%= format_price @product.price %>
+          </span>
+        <% else %>
+          <span class="new_price">
+            <%= format_price @product.price %>
+          </span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

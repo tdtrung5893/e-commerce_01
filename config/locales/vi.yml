@@ -123,6 +123,9 @@ vi:
       new:
         add_product: "Thêm sản phẩm"
         create: "Tạo"
+      show:
+        people_ratings: "lượt đánh gía"
+        review: "nhận xét"
     promotions:
       form:
         add_product: "Thêm sản phẩm"
@@ -283,6 +286,13 @@ vi:
       products: "tương tự"
       related: "Sản phẩm"
       review: "ĐÁNH GIÁ"
+      basic_props: "Thông số cơ bản"
+      screen: "Màn hình"
+      camera: "Camera"
+      cpu: "CPU"
+      ram: "RAM"
+      rom: "Bộ nhớ trong"
+      pin: "Pin"
   shared:
     cart:
       amount: "Thành tiền"

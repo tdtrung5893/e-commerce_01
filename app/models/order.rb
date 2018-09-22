@@ -16,9 +16,9 @@ class Order < ApplicationRecord
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
-      csv << column_names
+      csv << attributes = %w{id name total status}
       all.each do |order|
-        csv << order.attributes.values_at(*column_names)
+        csv << order.attributes.merge(order.user.attributes).values_at(*attributes)
       end
     end
   end

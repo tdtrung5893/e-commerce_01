@@ -7,6 +7,7 @@ class Admin::CreateFormsController < ApplicationController
   end
 
   def create
+    byebug
     @create = CreateForm.new create_params
     if @create.register
       flash[:success] = t "product_created"
@@ -21,6 +22,7 @@ class Admin::CreateFormsController < ApplicationController
 
   def create_params
     params.require(:create_form).permit :name, :category_id, :price, :description,
-      :screen, :camera, :cpu, :ram, :rom, :pin, :image_url
+      :image_url
+      # :screen, :camera, :cpu, :ram, :rom, :pin
   end
 end

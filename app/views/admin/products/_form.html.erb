@@ -21,6 +21,38 @@
       <%= f.input :description, label: t(".product_description") %>
     </div>
   </div>
+  <%= f.simple_fields_for :feature do |ff| %>
+    <div class="form-group">
+      <div class="col-md-offset-4 col-md-6 mb-20">
+        <%= ff.input :screen, label: t("products.show.screen") %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-4 col-md-6 mb-20">
+        <%= ff.input :camera, label: t("products.show.camera") %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-4 col-md-6 mb-20">
+        <%= ff.input :cpu, label: t("products.show.cpu") %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-4 col-md-6 mb-20">
+        <%= ff.input :ram, label: t("products.show.ram") %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-4 col-md-6 mb-20">
+        <%= ff.input :rom, label: t("products.show.rom") %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-4 col-md-6 mb-20">
+        <%= ff.input :pin, label: t("products.show.pin") %>
+      </div>
+    </div>
+  <% end %>
   <div class="form-group">
     <div class="col-md-offset-4 col-md-6 mb-20">
       <%= f.input :image_url, as: :file,
